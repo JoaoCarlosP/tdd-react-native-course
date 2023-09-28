@@ -6,5 +6,6 @@ import App from './App'
 describe('test', () => {
   test('Deve testar', () =>{
     renderer.create(<App />)
+    
   })
 })
