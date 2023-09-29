@@ -1,7 +1,7 @@
-import { LinearGradient } from 'expo-linear-gradient'
 import React from 'react'
 import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View, ViewProps } from 'react-native'
 import { Colors } from '../../constants'
+import { LinearGradient } from 'expo-linear-gradient'
 
 type Props = {
   label: string
@@ -13,10 +13,10 @@ function Button({ label, onPress, loading, style, ...rest }: Props ) {
   return (
     <TouchableOpacity testID='button' onPress={onPress}>
       <LinearGradient
-        {...rest}
+      {...rest}
         colors={[Colors.LIGHTER_GRAY, Colors.DARK_GREY]}
-        style={[styles.container, style]}
-        >
+        style={styles.container}
+      >
           <Text style={styles.label}>{label}</Text>
           
           {loading &&
