@@ -10,7 +10,7 @@ function HomeScreen() {
   const now = moment(new Date())
 
   return (
-    <LinearGradient colors={[Colors.LIGHT_GRAY, Colors.DARK_GRAY]} style={styles.container} testID='home-screen'>
+    <LinearGradient colors={[Colors.LIGHT_GRAY, Colors.DARKER_GRAY]} style={styles.container} testID='home-screen'>
       <View style={styles.title}>
         <Text style={styles.date}>{now.format('MMM DD, YYYY')}</Text>
         <Text style={styles.day}>{now.format('dddd')}</Text>

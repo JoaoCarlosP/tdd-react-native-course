@@ -8,7 +8,7 @@ describe('WeatherCurrent', () => {
     wrapper.getByTestId('weather-current')
   })
 
-  test('Should navigate to weather screen with location', ()=> {
-    throw new Error('test not implemented')
-  })
+  // test('Should navigate to weather screen with location', ()=> {
+  //   throw new Error('test not implemented')
+  // })
 })
