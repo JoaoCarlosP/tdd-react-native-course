@@ -12,12 +12,9 @@ class LocationService {
       }
 
       const location = await Location.getCurrentPositionAsync()
-      console.log('===========================================================')
-      console.log(location?.coords)
       const { latitude, longitude } = location?.coords || {}
 
       if (latitude === null || longitude === null) return undefined
-
       return { latitude, longitude }
     } catch (error) {
       throw new Error("Erro ao obter a posição.");

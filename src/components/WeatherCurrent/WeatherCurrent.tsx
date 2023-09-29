@@ -1,10 +1,9 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native'
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import LocationService from '../../services/LocationService';
 import { RootStackParamList } from '../../screens/AppNavigator';
 import Button from '../Button/Button';
 import * as Location from 'expo-location'
-
 
 type WeatherParams = {
   latitude: number;
@@ -12,9 +11,11 @@ type WeatherParams = {
 };
 
 function WeatherCurrent() {
+  const [loading, setLoading] = useState(false)
   const navigation = useNavigation<NavigationProp<RootStackParamList>>()
 
   const handleFetchWeather = useCallback(async () => {
+    setLoading(true)
     try {
       const position: WeatherParams | undefined = await LocationService.getCurrentPosition();
       
@@ -26,15 +27,16 @@ function WeatherCurrent() {
       }
     } catch (error) {
       console.error('Erro ao buscar a posição:', error);
-    }
+    } finally { setLoading(false) }
   }, [navigation]);
   
 
 
   return (
     <Button testID='weather-current'
-      label='Heloooo'
+      label='Weather at my position'
       onPress={handleFetchWeather}
+      loading={loading}
     />
   )
 }
