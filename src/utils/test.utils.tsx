@@ -1,4 +1,4 @@
-import React, { ElementType, ReactElement } from "react";
+import React from "react";
 import { RenderOptions, render } from "@testing-library/react-native";
 import rootReducer from "../store/reducers";
 import { Provider } from "react-redux";
@@ -13,13 +13,13 @@ type CustomRenderOptions = {
 const AllTheProviders = (options: CustomRenderOptions) => ({
   children
 }: {
-  children: ElementType
+  children: React.ReactNode
 }) => {
   return <Provider store={options.store || store}>{children}</Provider>
 }
 
 const customRender = (
-  ui: ReactElement,
+  ui: React.ReactElement,
   options: CustomRenderOptions & Omit<RenderOptions, 'queries'> = {}
 ) => {
   const { store, ...others} = options
