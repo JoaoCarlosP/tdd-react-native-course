@@ -4,6 +4,8 @@ import LocationService from '../../services/LocationService';
 import { RootStackParamList } from '../../screens/AppNavigator';
 import Button from '../Button/Button';
 import * as Location from 'expo-location'
+import { Colors } from '../../constants';
+import { StyleSheet } from 'react-native';
 
 type WeatherParams = {
   latitude: number;
@@ -11,11 +13,13 @@ type WeatherParams = {
 };
 
 function WeatherCurrent() {
+  const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
   const navigation = useNavigation<NavigationProp<RootStackParamList>>()
 
   const handleFetchWeather = useCallback(async () => {
     setLoading(true)
+    setError(false)
     try {
       const position: WeatherParams | undefined = await LocationService.getCurrentPosition();
       
@@ -26,8 +30,9 @@ function WeatherCurrent() {
         });
       }
     } catch (error) {
-      console.error('Erro ao buscar a posição:', error);
-    } finally { setLoading(false) }
+      setError(true)
+    } 
+    setLoading(false)
   }, [navigation]);
   
 
@@ -37,8 +42,17 @@ function WeatherCurrent() {
       label='Weather at my position'
       onPress={handleFetchWeather}
       loading={loading}
+      style={error && styles.error}
     />
   )
 }
+
+const styles = StyleSheet.create({
+  error: {
+    borderColor: Colors.ERROR,
+    borderWidth: 1,
+    borderRadius: 10
+  }
+})
 
 export default WeatherCurrent

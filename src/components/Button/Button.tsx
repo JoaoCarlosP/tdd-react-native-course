@@ -15,7 +15,7 @@ function Button({ label, onPress, loading, style, ...rest }: Props ) {
       <LinearGradient
       {...rest}
         colors={[Colors.LIGHTER_GRAY, Colors.DARK_GREY]}
-        style={styles.container}
+        style={[styles.container, style]}
       >
           <Text style={styles.label}>{label}</Text>
           
