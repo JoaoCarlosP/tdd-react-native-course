@@ -1,10 +1,10 @@
 import React from 'react'
 import { View } from 'react-native'
 
-function WeatherCordinates() {
+function WeatherCoordinates() {
   return (
     <View testID='weather-cordinates'></View>
   )
 }
 
-export default WeatherCordinates
+export default WeatherCoordinates

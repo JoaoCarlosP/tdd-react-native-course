@@ -1,9 +1,9 @@
 import { render } from "@testing-library/react-native"
-import WeatherCordinates from "../WeatherCordinates/WeatherCordinates"
+import WeatherCoordinates from "../WeatherCoordinates/WeatherCoordinates"
 
 describe('WeatherCordinates', () => {
   test('Should render correctly', () => {
-    const wrapper = render(<WeatherCordinates />)
+    const wrapper = render(<WeatherCoordinates />)
     wrapper.getByTestId('weather-cordinates')
   })
 })

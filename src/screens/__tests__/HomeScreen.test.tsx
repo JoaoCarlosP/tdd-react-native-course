@@ -2,10 +2,10 @@ import { render } from "@testing-library/react-native"
 import HomeScreen from "../HomeScreen"
 import { View } from "react-native"
 import WeatherCurrent from "../../components/WeatherCurrent/WeatherCurrent"
-import WeatherCordinates from "../../components/WeatherCordinates/WeatherCordinates"
+import WeatherCoordinates from "../../components/WeatherCoordinates/WeatherCoordinates"
 
 jest.mock('../../components/WeatherCurrent/WeatherCurrent', () => jest.fn().mockReturnValue(null))
-jest.mock('../../components/WeatherCordinates/WeatherCordinates', () => jest.fn().mockReturnValue(null))
+jest.mock('../../components/WeatherCoordinates/WeatherCoordinates', () => jest.fn().mockReturnValue(null))
 
 describe('HomeScreen', () => {
   test('Should render correctly', () => {
@@ -48,7 +48,7 @@ describe('HomeScreen', () => {
   })
 
   test('Should contain a section to get weather at given latitude & longitude', () => {
-    (WeatherCordinates as jest.Mock).mockReturnValue(<View testID="mock-weather-cordinates"/>)
+    (WeatherCoordinates as jest.Mock).mockReturnValue(<View testID="mock-weather-cordinates"/>)
 
     const wrapper = render(<HomeScreen />)
     wrapper.getByTestId('mock-weather-cordinates')

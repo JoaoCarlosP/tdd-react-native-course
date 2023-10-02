@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { Colors } from '../constants'
 import moment from 'moment'
 import WeatherCurrent from '../components/WeatherCurrent/WeatherCurrent'
-import WeatherCordinates from '../components/WeatherCordinates/WeatherCordinates'
+import WeatherCoordinates from '../components/WeatherCoordinates/WeatherCoordinates'
 
 function HomeScreen() {
   const now = moment(new Date())
@@ -20,7 +20,7 @@ function HomeScreen() {
 
       <Text testID='home-screen-divider' style={styles.divider}>Or</Text>
 
-      <WeatherCordinates />
+      <WeatherCoordinates />
     </LinearGradient>
   )
 }
