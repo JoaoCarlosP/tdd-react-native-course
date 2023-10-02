@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: Colors.TRANSPARENT,
-    margin: 1,
+    margin: 5,
     borderRadius: 10,
     borderWidth: 1,
     borderColor: Colors.GRAY,
