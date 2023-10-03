@@ -21,7 +21,6 @@ describe('App', () => {
     mockAppNavigator.mockReturnValueOnce(<View testID='mock-routes'/>)
 
     const wrapper = render(<App/>)
-    console.log(wrapper)
 
     await waitFor(() => {
       expect(wrapper.getByTestId('mock-routes'))

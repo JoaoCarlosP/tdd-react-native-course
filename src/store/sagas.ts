@@ -1,4 +1,5 @@
-import { all, fork } from 'redux-saga/effects'
+import { all, fork, spawn } from 'redux-saga/effects'
+import { saga as weather } from './weather'
 
 export default function* () {
   yield fork(bootstrap)
@@ -6,7 +7,7 @@ export default function* () {
 
 function* bootstrap() {
   try {
-    yield all([])
+    yield all([spawn(weather)])
   } catch (error) {
     // Error handling
   }

@@ -19,7 +19,7 @@ class WeatherService {
     const weather = data?.weather[0]
 
     return {
-      temperature: data?.main?.temperature,
+      temperature: data?.main?.temp || data?.main?.temperature,
       windSpeed: data?.wind?.speed,
       humidity: data?.main?.humidity,
       pressure: data?.main?.pressure,

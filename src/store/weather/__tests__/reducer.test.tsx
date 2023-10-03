@@ -55,9 +55,7 @@ describe('Store/weather', () => {
     
     test('Should handle fetchWeatherReset', () => {
       const success = reducer(undefined, fetchWeatherSuccess(mockWeather))
-      console.log({ success })
       const state = reducer(success, fetchWeatherReset())
-      console.log({ state })
       expect(state).toEqual(initialState)
     })
   })

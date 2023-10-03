@@ -6,13 +6,13 @@ import { NavigationProp, useNavigation } from '@react-navigation/native'
 import AppNavigator, { RootStackParamList } from "../AppNavigator"
 import HomeScreen from '../HomeScreen'
 
-jest.mock('../HomeScreen', () => jest.fn())
 jest.mock('../WeatherScreen', () => jest.fn())
+jest.mock('../HomeScreen', () => jest.fn())
 
 
 describe('AppNavigator', () => {
   test('Should render HomeScreen by default', async () => {
-    (HomeScreen as jest.Mock).mockReturnValueOnce(<View testID='mock-home-screen' />)
+    (HomeScreen as jest.Mock).mockReturnValue(<View testID='mock-home-screen' />)
     const wrapper = render(<AppNavigator />)
     
     await waitFor(() => {
